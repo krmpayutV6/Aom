@@ -1,0 +1,319 @@
+body {
+    background-color: #faeeda !important; /* สีขาวอมสีเนื้อ */
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ซองจดหมาย */
+.envelope {
+  position: relative;
+  width: 40vw;  /* ขนาดซองตามอุปกรณ์ */
+  height: 30vw; /* ขนาดซองตามอุปกรณ์ */
+  perspective: 700px;
+  cursor: pointer;
+  
+}
+/* ซ่อนจดหมายก่อนการคลิก */
+.letter {
+  padding: 13px;
+  display: none;  
+  position: relative; /* ใช้ fixed เพื่อให้อยู่ตรงกลางหน้าจอ */
+  transform: translate(-50%, -50%); /* เคลื่อนตำแหน่งให้อยู่ตรงกลาง */
+  width: 70%;
+  height: 80%;
+  background-color: #ffffff; 
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 1s ease, transform 1s ease;
+  z-index: 3;
+  /* font-size: 18px; */
+  color: black; 
+  white-space: pre-wrap;  /* ขึ้นบรรทัดใหม่เมื่อเต็มขอบ */
+  flex-direction: column; /* แนวตั้ง */
+    justify-content: flex-start; /* จัดให้อยู่ที่ด้านบน */
+}
+
+.letter.show {
+  display: flex; /* แสดงจดหมาย */
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.letter-content{
+  display: inline-block;
+  overflow: hidden;  /* ซ่อนส่วนที่เกินขอบ */
+  white-space: pre-wrap;  /* ขึ้นบรรทัดใหม่เมื่อเต็มขอบ */
+  font-family: 'Mali', cursive;  
+  font-size: 20px;
+  width: 100%;  /* กำหนดให้ความกว้างเป็น 100% */
+  word-wrap: break-word;  /* ให้ข้อความแตกบรรทัดเมื่อถึงขอบ */
+}
+
+.next-button {
+  position: absolute;
+  bottom: 15px;
+  right: 10px; /* ห่างจากขอบขวา */
+  padding: 10px 20px;
+  width: auto; /* ทำให้ปุ่มขยายตามความยาวของข้อความ */
+  max-width: 90%; /* จำกัดความกว้างสูงสุด */
+  font-size: 18px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  text-align: center; /* จัดตำแหน่งข้อความให้อยู่กลาง */
+  white-space: nowrap; /* ป้องกันข้อความไปขึ้นบรรทัดใหม่ */
+  overflow: hidden; /* ซ่อนข้อความที่ล้น */
+  text-overflow: ellipsis; /* แสดง ... ถ้าข้อความยาวเกิน */
+  animation: bounce 1.5s ease-in-out infinite; /* เพิ่มการเคลื่อนไหว */
+}
+.next-button:hover {
+  background-color: #45a049;
+}
+
+
+/* ซองจดหมาย (ด้านหน้าและด้านหลัง) */
+.envelope-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 1s ease;
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  text-align: center;
+}
+
+.front {
+  background-color: #a72e2e;
+  border: 2px solid #d4a373;
+  border-radius: 10px;
+  z-index: 2;
+  background-image: url(img/texture.png);
+  background-size: cover;
+}
+.line-container {
+  position: absolute;
+  top: 12%;
+  left: 10%;
+  width: 22vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4vw; /* กำหนดระยะห่างระหว่างเส้น */
+}
+
+.line {
+  width: 100%;
+  height: 1px; /* ความหนาของเส้น */
+  border-top: 1px dashed rgb(26, 26, 26);
+}
+.photo-frame {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 7vw;
+  height: 9vw;
+  border: 3px dashed #333; /* ขอบแบบเส้นประ */
+  padding: 8px;
+  background-image: url(img/profile.jpg);
+  background-size: cover;
+  justify-content: center;
+  align-items: center;
+}
+
+.address{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: #ccc;
+  font-size: 2vw;
+  font-family: 'Mali', cursive;
+}
+.sticker{
+  position: absolute;
+  width: 11vw;
+  height: 14vw;
+  background-image: url(img/Jellyfish.png);
+  background-size: cover;
+  bottom: 8%;
+  left: 6%;
+  rotate:30deg;
+}
+
+.frame_address{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 23vw;
+  height: 40%;
+  border: 2px dashed #333; /* ขอบแบบเส้นประ */
+  padding: 8px;
+}
+.back {
+  background-color: #fff;
+  border: 2px solid #d4a373;
+  border-radius: 10px;
+  z-index: 1;
+  transform: rotateY(180deg);
+}
+
+/* ตราประทับ */
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background-color: #b45555;
+  clip-path: polygon(0% 0%, 100% 0%, 50% 100%); /* สามเหลี่ยมกลับหัว */
+  transform-origin: top;
+  transition: transform 1s ease;
+  z-index: 1;
+}
+.flapB {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-left: 20vw solid transparent;
+  border-right: 20vw solid transparent;
+  border-top: 50vw solid #6afd25; /* สีของร่องซอง */
+  transform: translateX(-50%);
+  z-index: 0;
+  border-top-width: 15vw; /* ความหนาของเส้นขอบ */
+  border-top-style: solid;
+  border-top-color: #a3404065; /* สีของเส้นขอบ */
+
+}
+/* .flapA {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background-color: #575757;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  transform-origin: top;
+  transition: transform 1s ease;
+  z-index: 1; 
+
+} */
+.seal {
+  position: absolute;
+  width: 10vw;
+  height: 10vw;
+  background-image: url('img/seal.png');
+  background-size: cover;
+  cursor: pointer;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 2;
+  transition: opacity 1s ease; /* ค่อยๆ หายไป */
+}
+
+.folded-paper {
+  position: absolute;
+  width: 15vw;  /* ขนาดของกระดาษ */
+  height: 8vw;
+  background-color: #fefefe; /* สีขาวของกระดาษ */
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50px);  /* เริ่มจากข้างในซอง */
+  opacity: 0; /* ซ่อนอยู่ก่อน */
+  transition: transform 3s ease-out, opacity 3s ease-out;
+}
+
+
+/* พลิกซองเมื่อคลิก */
+.envelope-inner.flipped .front {
+  visibility: hidden;  /* ซ่อนด้านหน้าเมื่อพลิก */
+}
+
+.envelope-inner.flipped {
+  transform: rotateY(180deg);  /* พลิกซอง */
+}
+
+
+  .falling-petals {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  
+  .petal {
+    position: absolute;
+    top: -30px; /* เริ่มต้นที่ขอบบน */
+    animation: fall 3s ease-out infinite, spin 3s linear infinite;
+    font-size: 30px;
+    color: #ff69b4; /* สีชมพู */
+    opacity: 0.9;
+    z-index: 999;
+  }
+  
+  @keyframes fall {
+    0% {
+      top: -30px;
+      opacity: 1;
+    }
+    100% {
+      top: 100vh;
+      opacity: 0;
+    }
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* ตัวอักษรพิมพ์ */
+  @keyframes typing {
+    0% {
+      width: 0;
+      letter-spacing: 0;
+    }
+    100% {
+      width: 100%;
+      letter-spacing: 2px;
+    }
+  }
+
+
+  /* การเคลื่อนไหวขยับขึ้นลง */
+@keyframes bounce {
+  0%, 100% {
+      transform: translateY(0); /* เริ่มที่ตำแหน่งเดิม */
+  }
+  50% {
+      transform: translateY(-10px); /* ขยับขึ้นไป 10px */
+  }
+}
