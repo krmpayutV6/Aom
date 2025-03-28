@@ -58,23 +58,23 @@ body {
 
 .next-button {
   position: absolute;
-  bottom: 15px;
-  right: 10px; /* ห่างจากขอบขวา */
-  padding: 10px 20px;
-  width: auto; /* ทำให้ปุ่มขยายตามความยาวของข้อความ */
-  max-width: 90%; /* จำกัดความกว้างสูงสุด */
-  font-size: 18px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  display: block;
-  text-align: center; /* จัดตำแหน่งข้อความให้อยู่กลาง */
-  white-space: nowrap; /* ป้องกันข้อความไปขึ้นบรรทัดใหม่ */
-  overflow: hidden; /* ซ่อนข้อความที่ล้น */
-  text-overflow: ellipsis; /* แสดง ... ถ้าข้อความยาวเกิน */
-  animation: bounce 1.5s ease-in-out infinite; /* เพิ่มการเคลื่อนไหว */
+    bottom: 15px;
+    right: 10px;
+    padding: 5px 10px;
+    width: auto;
+    max-width: 90%;
+    font-size: 1.5vw;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    animation: bounce 1.5s ease-in-out infinite;
 }
 .next-button:hover {
   background-color: #45a049;
