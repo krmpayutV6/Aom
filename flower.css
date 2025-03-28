@@ -37,7 +37,7 @@ body {
   color: #fff; /* กำหนดสีตัวอักษร */
   border: none; /* เอากรอบปุ่มออก */
   border-radius: 5px; /* ทำให้มุมปุ่มกลม */
-  font-size: 16px; /* กำหนดขนาดตัวอักษร */
+  font-size: 1.5vw; /* กำหนดขนาดตัวอักษร */
   cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อชี้ไปที่ปุ่ม */
   transition: background-color 0.3s ease; /* เพิ่มการเปลี่ยนสีเมื่อวางเมาส์ */
   z-index: 100;
