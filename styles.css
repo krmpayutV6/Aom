@@ -51,7 +51,7 @@ body {
   overflow: hidden;  /* ซ่อนส่วนที่เกินขอบ */
   white-space: pre-wrap;  /* ขึ้นบรรทัดใหม่เมื่อเต็มขอบ */
   font-family: 'Mali', cursive;  
-  font-size: 20px;
+  font-size: 1.5vw;
   width: 100%;  /* กำหนดให้ความกว้างเป็น 100% */
   word-wrap: break-word;  /* ให้ข้อความแตกบรรทัดเมื่อถึงขอบ */
 }
